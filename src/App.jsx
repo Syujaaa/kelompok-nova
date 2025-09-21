@@ -74,28 +74,28 @@ const sections = [
   {
     id: "kelompok",
     title: "Kelompok Nova",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam, veniam cum sunt voluptas quaerat rem expedita quos inventore eius corporis, tempore asperiores magnam minima nobis dolorem corrupti vel consequatur quibusdam velit similique optio voluptatibus. Sequi eveniet exercitationem adipisci architecto et fuga ratione perferendis earum ut natus fugit eum cupiditate iusto aut tempora expedita itaque aliquid velit dolorum nulla ducimus aperiam qui, voluptas eos! Aliquid similique error voluptatibus, tempora repudiandae soluta modi totam provident iste illum doloremque nam eum nulla alias sint eos obcaecati ducimus officia dolorem, doloribus ut, fugiat architecto fuga. Eligendi similique necessitatibus magnam et laboriosam.",
+    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam.",
     img: null,
     bg: "linear-gradient(135deg, #1e3c72, #2a5298)",
   },
   {
     id: "pendamping",
     title: "Pendamping",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam, veniam cum sunt voluptas quaerat rem expedita quos inventore eius corporis, tempore asperiores magnam minima nobis dolorem corrupti vel consequatur quibusdam velit similique optio voluptatibus. Sequi eveniet exercitationem adipisci architecto et fuga ratione perferendis earum ut natus fugit eum cupiditate iusto aut tempora expedita itaque aliquid velit dolorum nulla ducimus aperiam qui, voluptas eos! Aliquid similique error voluptatibus, tempora repudiandae soluta modi totam provident iste illum doloremque nam eum nulla alias sint eos obcaecati ducimus officia dolorem, doloribus ut, fugiat architecto fuga. Eligendi similique necessitatibus magnam et laboriosam.",
+    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     img: "/images/default.png",
     bg: "linear-gradient(135deg, #42275a, #734b6d)",
   },
   {
     id: "anggota1",
     title: "Anggota 1",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam, veniam cum sunt voluptas quaerat rem expedita quos inventore eius corporis, tempore asperiores magnam minima nobis dolorem corrupti vel consequatur quibusdam velit similique optio voluptatibus. Sequi eveniet exercitationem adipisci architecto et fuga ratione perferendis earum ut natus fugit eum cupiditate iusto aut tempora expedita itaque aliquid velit dolorum nulla ducimus aperiam qui, voluptas eos! Aliquid similique error voluptatibus, tempora repudiandae soluta modi totam provident iste illum doloremque nam eum nulla alias sint eos obcaecati ducimus officia dolorem, doloribus ut, fugiat architecto fuga. Eligendi similique necessitatibus magnam et laboriosam.",
+    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam, veniam cum sunt voluptas quaerat rem expedita quos inventore eius corporis, tempore asperiores magnam minima nobis dolorem corrupti vel consequatur quibusdam velit similique optio voluptatibus. ",
     img: "/images/default.png",
     bg: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)",
   },
   {
     id: "anggota2",
     title: "Anggota 2",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam, veniam cum sunt voluptas quaerat rem expedita quos inventore eius corporis, tempore asperiores magnam minima nobis dolorem corrupti vel consequatur quibusdam velit similique optio voluptatibus. Sequi eveniet exercitationem adipisci architecto et fuga ratione perferendis earum ut natus fugit eum cupiditate iusto aut tempora expedita itaque aliquid velit dolorum nulla ducimus aperiam qui, voluptas eos! Aliquid similique error voluptatibus, tempora repudiandae soluta modi totam provident iste illum doloremque nam eum nulla alias sint eos obcaecati ducimus officia dolorem, doloribus ut, fugiat architecto fuga. Eligendi similique necessitatibus magnam et laboriosam.",
+    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam, veniam cum sunt voluptas quaerat rem expedita quos inventore eius corporis, tempore asperiores magnam minima nobis dolorem corrupti vel consequatur quibusdam velit similique optio voluptatibus. ",
     img: "/images/default.png",
     bg: "linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b)",
   },
@@ -144,44 +144,18 @@ export default function SmoothSections() {
           <motion.div
             key={section.id}
             style={{ opacity }}
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center px-6"
+            className="fixed top-0 left-0 w-full h-full flex items-center justify-center px-4 sm:px-6"
           >
-            <div className="flex flex-col md:flex-row items-center gap-10 max-w-6xl">
-              {section.id === "kelompok" ? (
-                <div className="flex-1 text-center md:text-left">
-                  <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
-                    {section.title}
-                  </h1>
-                  <p className="text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
-                    {section.desc}
-                  </p>
-                </div>
-              ) : (
-                <motion.div
-                  className="flex-1 text-center md:text-left"
-                  initial={{ opacity: 0, y: 40, filter: "blur(20px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -40, filter: "blur(20px)" }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                >
-                  <motion.h1
-                    className="text-4xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]"
-                    initial={{ clipPath: "inset(0 100% 0 0)" }}
-                    animate={{ clipPath: "inset(0 0% 0 0)" }}
-                    transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                  >
-                    {section.title}
-                  </motion.h1>
-                  <motion.p
-                    className="text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-                  >
-                    {section.desc}
-                  </motion.p>
-                </motion.div>
-              )}
+            <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-6 md:gap-10 max-w-6xl w-full h-full md:h-auto overflow-hidden">
+              {/* Text */}
+              <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0">
+                <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
+                  {section.title}
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+                  {section.desc}
+                </p>
+              </div>
 
               {/* Image */}
               {section.img && (
@@ -202,13 +176,13 @@ export default function SmoothSections() {
                       : { opacity: 0, scale: 0.6, rotateY: -90 }
                   }
                   transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-                  className="relative w-64 h-80 flex-shrink-0"
+                  className="relative w-full max-w-[200px] sm:max-w-[250px] md:w-64 md:h-80 flex-shrink-0"
                 >
                   <div className="absolute inset-0 bg-cyan-400/30 animate-pulse blur-xl rounded-lg" />
                   <img
                     src={section.img}
                     alt={section.title}
-                    className="relative w-full h-full object-cover rounded-lg border-2 border-cyan-400/70 shadow-[0_0_30px_rgba(0,255,255,0.8)]"
+                    className="relative w-full h-auto md:h-full object-cover rounded-lg border-2 border-cyan-400/70 shadow-[0_0_30px_rgba(0,255,255,0.8)]"
                   />
                   <div className="absolute inset-0 bg-[repeating-linear-gradient(to_bottom,rgba(0,255,255,0.2),rgba(0,255,255,0.2)_2px,transparent_2px,transparent_4px)] animate-[slide_4s_linear_infinite]" />
                 </motion.div>

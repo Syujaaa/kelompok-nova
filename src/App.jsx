@@ -50,6 +50,18 @@ function YelYelSection({ scrollYProgress }) {
   const opacity = useTransform(scrollYProgress, [0, 0.08, 0.12], [1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.12], [1, 0.9]);
 
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let current = 0;
+    const interval = setInterval(() => {
+      current++;
+      setCount(current);
+      if (current === 13) clearInterval(interval);
+    }, 200); // 0.2 detik per step (total 2.6 detik sampai 13)
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.div
       className="fixed inset-0 flex flex-col items-center justify-center text-center text-cyan-300 z-40 bg-black/30"
@@ -58,40 +70,51 @@ function YelYelSection({ scrollYProgress }) {
       <motion.h1
         className="text-6xl md:text-7xl font-extrabold drop-shadow-[0_0_40px_rgba(0,255,255,1)] mb-10"
         animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
-        transition={{ duration: 4, repeat: Infinity }} // lebih lambat
+        transition={{ duration: 4, repeat: Infinity }}
       >
         NOVA!
       </motion.h1>
 
-      <div className="space-y-6 text-2xl md:text-3xl font-bold">
-        <motion.p
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8, duration: 1.5 }}
-        >
-          N – Nalar
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 2.0, duration: 1.5 }}
-        >
-          O – Optimis
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 3.2, duration: 1.5 }}
-        >
-          V – Visioner
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 4.4, duration: 1.5 }}
-        >
-          A – Aktif
-        </motion.p>
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 drop-shadow-[0_0_25px_rgba(0,255,255,1)]"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Total Anggota: {count}
+      </motion.h2>
+
+      <div className="flex flex-col items-center text-2xl md:text-3xl font-bold">
+        <div className="flex flex-col space-y-6 text-left">
+          <motion.p
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 1.5 }}
+          >
+            N – Nalar
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 2.0, duration: 1.5 }}
+          >
+            O – Optimis
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 3.2, duration: 1.5 }}
+          >
+            V – Visioner
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 4.4, duration: 1.5 }}
+          >
+            A – Aktif
+          </motion.p>
+        </div>
       </div>
 
       <motion.h2
@@ -103,14 +126,32 @@ function YelYelSection({ scrollYProgress }) {
         SuperNOVA!!
       </motion.h2>
 
-      <motion.p
-        className="mt-6 max-w-2xl text-lg md:text-xl text-cyan-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 7.5, duration: 2 }}
+      <motion.div
+        className="mt-6 max-w-2xl text-lg md:text-xl text-cyan-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] flex flex-wrap justify-center gap-x-2 gap-y-1"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {},
+        }}
       >
-        “Nalar Cerdas, Optimis Kuat, Visioner Hebat, Aktif Tanpa Batas!”
-      </motion.p>
+        {[
+          "Nalar Cerdas,",
+          "Optimis Kuat,",
+          "Visioner Hebat,",
+          "Aktif Tanpa Batas!",
+        ].map((text, i) => (
+          <motion.span
+            key={i}
+            className="inline-block"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 7.5 + i * 1, duration: 0.8 }}
+          >
+            {text}
+          </motion.span>
+        ))}
+      </motion.div>
     </motion.div>
   );
 }
@@ -138,7 +179,7 @@ function EndSection({ scrollYProgress }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        Sudah melihat perjalanan kelompok kami. Semoga karya kecil ini memberi
+        Sudah melihat anggota kelompok kami. Semoga karya kecil ini memberi
         inspirasi teknologi dan semangat baru ✨
       </motion.p>
     </motion.div>
@@ -274,7 +315,7 @@ export default function SmoothSections() {
     const timer = setTimeout(() => {
       setCanScroll(true);
       setShowScrollHint(true);
-    }, 9000);
+    }, 11500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -283,12 +324,14 @@ export default function SmoothSections() {
   }, [scrollYProgress]);
 
   return (
-    <div className="h-[500vh] text-white relative overflow-hidden font-mono">
+    // tambahkan tinggi ekstra agar EndSection muncul jelas di device kecil
+    <div className="h-[600vh] text-white relative overflow-hidden font-mono">
       <motion.div
         className="fixed top-0 left-0 h-2 bg-cyan-400 z-50 origin-left"
         style={{ scaleX }}
       />
 
+      {/* background transition */}
       <motion.div
         className="fixed top-0 left-0 w-full h-full -z-30"
         style={{
@@ -301,7 +344,6 @@ export default function SmoothSections() {
       />
 
       <TechEffects />
-
       <YelYelSection scrollYProgress={scrollYProgress} />
 
       {sections.map((section, i) => {
@@ -323,6 +365,7 @@ export default function SmoothSections() {
             style={{ opacity }}
             className="fixed top-0 left-0 w-full h-full flex items-center justify-center px-4 sm:px-6"
           >
+            <div className="absolute inset-0 bg-black/30"></div>
             <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-6 md:gap-10 max-w-6xl w-full h-full md:h-auto overflow-hidden">
               <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0">
                 <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
@@ -367,6 +410,7 @@ export default function SmoothSections() {
         );
       })}
 
+      {/* scroll hint tetap di atas */}
       {showScrollHint && progress < 0.9 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -402,6 +446,7 @@ export default function SmoothSections() {
         </motion.div>
       )}
 
+      {/* pastikan EndSection di atas semua */}
       <EndSection scrollYProgress={scrollYProgress} />
     </div>
   );

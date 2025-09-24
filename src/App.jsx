@@ -58,7 +58,7 @@ function YelYelSection({ scrollYProgress }) {
       current++;
       setCount(current);
       if (current === 13) clearInterval(interval);
-    }, 200); // 0.2 detik per step (total 2.6 detik sampai 13)
+    }, 200);
     return () => clearInterval(interval);
   }, []);
 
@@ -189,7 +189,17 @@ const sections = [
   {
     id: "kelompok",
     title: "Kelompok Nova",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui doloremque ad aliquam.",
+    desc: `Nama "Nova" terinspirasi dari sebuah AI bernama "Nova AI". 
+  Nova bermakna sesuatu yang baru, melambangkan awal baru, inovasi, dan kecemerlangan. 
+  Dengan jargon: "NOVA – Nalar Cerdas, Optimis Kuat, Visioner Hebat, Aktif Tanpa Batas!", 
+  kelompok ini dipimpin oleh Mas Rasya sebagai ketua dan didampingi oleh Kak Lela. 
+  <br />
+  <br />
+  Pada pentas seni kemarin, Nova menampilkan Drama Musikal 'Kisah Malin Kundang' 
+  dengan twist unik—peran istri dan ibu Malin Kundang dimainkan oleh anggota cowok. 🎭 
+  <br />
+  <br />
+  Fun fact: Kelompok Nova hampir kena evaluasi korlap sampai 3 kali loh 😹`,
     img: null,
     bg: "linear-gradient(135deg, #1e3c72, #2a5298)",
   },
@@ -324,14 +334,12 @@ export default function SmoothSections() {
   }, [scrollYProgress]);
 
   return (
-    // tambahkan tinggi ekstra agar EndSection muncul jelas di device kecil
     <div className="h-[600vh] text-white relative overflow-hidden font-mono">
       <motion.div
         className="fixed top-0 left-0 h-2 bg-cyan-400 z-50 origin-left"
         style={{ scaleX }}
       />
 
-      {/* background transition */}
       <motion.div
         className="fixed top-0 left-0 w-full h-full -z-30"
         style={{
@@ -367,14 +375,56 @@ export default function SmoothSections() {
           >
             <div className="absolute inset-0 bg-black/30"></div>
             <div className="flex flex-col-reverse md:flex-row items-center md:items-start gap-6 md:gap-10 max-w-6xl w-full h-full md:h-auto overflow-hidden">
-              <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0">
-                <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
-                  {section.title}
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
-                  {section.desc}
-                </p>
-              </div>
+              {section.id === "kelompok" ? (
+                <motion.div
+                  key={section.id}
+                  style={{ opacity }}
+                  className="fixed top-0 left-0 w-full h-full flex items-center justify-center px-4 sm:px-6"
+                >
+                  <div className="absolute inset-0 bg-black/30"></div>
+
+                  <div
+                    className={`flex flex-col-reverse md:flex-row items-center md:items-start gap-6 md:gap-10 max-w-6xl w-full h-full md:h-auto px-2 md:px-0 justify-center`}
+                  >
+                    <div className="flex-1 overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none flex flex-col items-center text-center">
+                      <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
+                        {section.title}
+                      </h1>
+                      <p
+                        className="text-base sm:text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                        dangerouslySetInnerHTML={{ __html: section.desc }}
+                      />
+                    </div>
+
+                    {section.img && (
+                      <motion.div
+                        initial={false}
+                        animate={false}
+                        exit={false}
+                        className="relative w-full max-w-[200px] sm:max-w-[250px] md:w-64 md:h-80 flex-shrink-0"
+                      >
+                        <div className="absolute inset-0 bg-cyan-400/30 animate-pulse blur-xl rounded-lg" />
+                        <img
+                          src={section.img}
+                          alt={section.title}
+                          className="relative w-full h-auto md:h-full object-cover rounded-lg border-2 border-cyan-400/70 shadow-[0_0_30px_rgba(0,255,255,0.8)]"
+                        />
+                        <div className="absolute inset-0 bg-[repeating-linear-gradient(to_bottom,rgba(0,255,255,0.2),rgba(0,255,255,0.2)_2px,transparent_2px,transparent_4px)] animate-[slide_4s_linear_infinite]" />
+                      </motion.div>
+                    )}
+                  </div>
+                </motion.div>
+              ) : (
+                <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0">
+                  <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
+                    {section.title}
+                  </h1>
+                  <p
+                    className="text-base sm:text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                    dangerouslySetInnerHTML={{ __html: section.desc }}
+                  />
+                </div>
+              )}
 
               {section.img && (
                 <motion.div
@@ -446,7 +496,6 @@ export default function SmoothSections() {
         </motion.div>
       )}
 
-      {/* pastikan EndSection di atas semua */}
       <EndSection scrollYProgress={scrollYProgress} />
     </div>
   );

@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 
-export default function EndSection({ scrollYProgress }) {
+export default function EndSection({ scrollYProgress, style }) {
   const opacity = useTransform(scrollYProgress, [0.95, 0.98, 1], [0, 0, 1]);
   const scale = useTransform(scrollYProgress, [0.98, 1], [0.95, 1]);
 
@@ -17,7 +17,7 @@ export default function EndSection({ scrollYProgress }) {
   return (
     <motion.div
       className="fixed inset-0 flex flex-col items-center justify-center text-center text-cyan-300 z-50 bg-black/40 px-4"
-      style={{ opacity, scale }}
+      style={{ opacity, scale, ...style }}
     >
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,255,255,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,255,255,0.07)_1px,transparent_1px)] bg-[size:40px_40px] -z-10" />
 

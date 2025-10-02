@@ -286,7 +286,7 @@ export default function SmoothSections() {
         );
       })}
 
-      {showScrollHint && progress < 0.9 && (
+      {showScrollHint && progress < 1 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -321,7 +321,14 @@ export default function SmoothSections() {
         </motion.div>
       )}
 
-      <EndSection scrollYProgress={scrollYProgress} />
+      <EndSection
+        scrollYProgress={scrollYProgress}
+        style={{
+          pointerEvents: progress < 1 ? "none" : "auto",
+          opacity: progress < 1 ? 0 : 1,
+          transition: "opacity 0.5s ease-in-out",
+        }}
+      />
     </div>
   );
 }

@@ -1,7 +1,4 @@
-import {
-  motion,
-  useTransform,
-} from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function YelYelSection({ scrollYProgress }) {
@@ -23,7 +20,7 @@ export default function YelYelSection({ scrollYProgress }) {
   return (
     <motion.div
       className="fixed inset-0 flex flex-col items-center justify-center text-center text-cyan-300 z-40 bg-black/30"
-      style={{ opacity, scale }}
+      style={{ opacity, scale, zIndex: 0 }}
     >
       <motion.h1
         className="text-6xl md:text-7xl font-extrabold drop-shadow-[0_0_40px_rgba(0,255,255,1)] mb-10"
@@ -81,7 +78,7 @@ export default function YelYelSection({ scrollYProgress }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 6, duration: 1.8 }}
       >
-        SuperNOVA!!
+        Super NOVA!!
       </motion.h2>
 
       <motion.div

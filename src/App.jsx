@@ -10,6 +10,7 @@ import "plyr-react/plyr.css";
 import TechEffects from "./components/TechEffects";
 import YelYelSection from "./components/Yelyel";
 import EndSection from "./components/EndSection";
+import CircularProgress from "./components/CircularProgress";
 
 const sections = [
   {
@@ -59,11 +60,12 @@ const sections = [
   },
   {
     id: "anggota4",
-    title: "Syuja",
+    title: "Azza",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    img: "/images/syuja.png",
-    bg: "linear-gradient(135deg, #8e2de2, #4a00e0)",
+    img: "/images/azza.png",
+    bg: "linear-gradient(135deg, #e96443, #904e95)",
   },
+
   {
     id: "anggota5",
     title: "Desta",
@@ -71,6 +73,7 @@ const sections = [
     img: "/images/desta.png",
     bg: "linear-gradient(135deg, #ff512f, #dd2476)",
   },
+
   {
     id: "anggota6",
     title: "Dika",
@@ -78,6 +81,7 @@ const sections = [
     img: "/images/dika.png",
     bg: "linear-gradient(135deg, #56ab2f, #a8e063)",
   },
+
   {
     id: "anggota7",
     title: "Haikal",
@@ -95,37 +99,43 @@ const sections = [
   {
     id: "anggota9",
     title: "Naila",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    desc: "Hi teman teman, aku ailaa. sedikit tentangkuuu, aku tuh orang nya soft spoken lohhh xixiii. Pengalaman ospek bersama nova seseru itu guys. Nova tuh solid parah parah parah. Ada kak lela juga yang jaga kami. Fun fact yah guys, aku selalu butuh translator kalau kumpul sama novaa soal e aku orang medan guys (makanya aku serem, ror). Follow ig aku donggg @nela_prpt",
     img: "/images/naila.png",
     bg: "linear-gradient(135deg, #1f4037, #99f2c8)",
   },
+
   {
     id: "anggota10",
-    title: "Azza",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-    img: "/images/azza.png",
-    bg: "linear-gradient(135deg, #e96443, #904e95)",
-  },
-  {
-    id: "anggota11",
     title: "Ozan",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     img: "/images/ozan.png",
     bg: "linear-gradient(135deg, #2193b0, #6dd5ed)",
   },
   {
-    id: "anggota12",
+    id: "anggota11",
     title: "Rifdah",
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     img: "/images/rifdah.png",
     bg: "linear-gradient(135deg, #ee9ca7, #ffdde1)",
   },
   {
-    id: "anggota13",
+    id: "anggota12",
     title: "Rizal",
-    desc: "Halo semuanya! Saya adalah Rizaldi Henry Prakoso Seorang maba baru Teknik Informatika Unnes Saya biasa pakai Youtube dan AI dengan semangat penuh. Waktu awal kuliah, pengalaman ospek Ilmu Komputer jadi salah satu momen seru yang tidak akan never saya lupain.  Dari situ saya belajar arti solid dengan teman-teman senasib.  Yuk, kenal lebih jauh di Instagram saya @rihepr",
+    desc: `Halo semuanya! Saya adalah Rizaldi Henry Prakoso Seorang maba baru Teknik Informatika Unnes Saya biasa pakai Youtube dan AI dengan semangat penuh. Waktu awal kuliah, pengalaman ospek Ilmu Komputer jadi salah satu momen seru yang tidak akan never saya lupain.  Dari situ saya belajar arti solid dengan teman-teman senasib.  Yuk, kenal lebih jauh di Instagram saya @rihepr`,
     img: "/images/rizal.png",
     bg: "linear-gradient(135deg, #a18cd1, #fbc2eb)",
+  },
+  {
+    id: "anggota13",
+    title: "Syuja",
+    desc: `Halo teman-teman!
+Aku Syuja, mahasiswa baru di Universitas Negeri Semarang, jurusan Teknik Informatika. Buatku, belajar itu bukan cuma soal teori, tapi gimana caranya kita bisa bikin sesuatu yang bermanfaat dan seru untuk orang lain.
+Aku orangnya santai dan gampang diajak ngobrol, jadi kalau ketemu jangan ragu buat say hi atau sharing cerita. 😁<br/>
+Kalau penasaran mau tahu lebih banyak tentang aku, boleh main ke: <br /> 👉 <a href="https://farrassyuja.my.id/" class="tech-link" target="_blank">
+  farrassyuja.my.id
+</a>`,
+    img: "/images/syuja.png",
+    bg: "linear-gradient(135deg, #8e2de2, #4a00e0)",
   },
 ];
 
@@ -241,12 +251,13 @@ export default function SmoothSections() {
                   </div>
                 </motion.div>
               ) : (
-                <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0">
+                <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0" style={{zIndex: 9999}}>
                   <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
                     {section.title}
                   </h1>
                   <p
                     className="text-base sm:text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                    
                     dangerouslySetInnerHTML={{ __html: section.desc }}
                   />
                 </div>
@@ -286,7 +297,7 @@ export default function SmoothSections() {
         );
       })}
 
-      {showScrollHint && progress < 1 && (
+      {showScrollHint && progress < 0.99999 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -324,11 +335,12 @@ export default function SmoothSections() {
       <EndSection
         scrollYProgress={scrollYProgress}
         style={{
-          pointerEvents: progress < 1 ? "none" : "auto",
-          opacity: progress < 1 ? 0 : 1,
+          pointerEvents: progress < 0.99999 ? "none" : "auto",
+          opacity: progress < 0.99999 ? 0 : 1,
           transition: "opacity 0.5s ease-in-out",
         }}
       />
+      <CircularProgress scrollYProgress={scrollYProgress} />
     </div>
   );
 }

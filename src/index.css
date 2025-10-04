@@ -21,3 +21,49 @@ body {
   position: fixed !important;
   inset: 0 !important;
 }
+
+.glow-cyan {
+  filter: drop-shadow(0 0 6px rgba(0, 255, 255, 0.8))
+    drop-shadow(0 0 12px rgba(0, 255, 255, 0.5));
+}
+
+.tech-link {
+  font-family: "Fira Code", monospace; /* biar kesan ngoding */
+  color: #00f7ff;
+  text-decoration: none;
+  background: linear-gradient(90deg, #00f7ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tech-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00f7ff, #00ff88);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.tech-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.tech-link:hover {
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px #00f7ff;
+}
+
+p, span, h1, h2, h3, h4, h5, h6 {
+  cursor: default;
+  user-select: none;
+}
+

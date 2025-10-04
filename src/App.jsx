@@ -92,7 +92,7 @@ const sections = [
   {
     id: "anggota8",
     title: "Nadin",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    desc: `Alo alo alooo, kenalin nama aku Nadin Cahya Febrianti, kalian bisa panggil aku Nadin. Aku adalah anak yang selalu excited kalo ada yang ngajakin main. Aku seneng banget punya banyak temen. Tapi tapi tapi... aku orangnya sedikit ceroboh gesss. Makanya di Nova, aku disebut "problem maker"😢. TAPI ITU IT'S OK BANGET. Aku ga peduli mereka manggil aku apa, yang penting aku nyaman dan seneng main sama kaliannn🤍`,
     img: "/images/nadin.png",
     bg: "linear-gradient(135deg, #ff0099, #493240)",
   },
@@ -114,7 +114,9 @@ const sections = [
   {
     id: "anggota11",
     title: "Rifdah",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    desc: `Halo! Nama aku Siti Rifdah Husnul ‘Aqilah, biasanya dipanggil Rifdah! Aku maba baru Sistem Informasi UNNES Semarang 2025. Aku punya ketertarikan yang besar terhadap dunia desain (grafis maupun UI/UX) dan perfilman. Fun fact, aku suka banget sama udang walaupun alergi and i’m a big fan of tomato.
+Pengalaman awal kuliah, terutama Interface, jadi salah satu momen seru yang gabakal tergantikan. Dari situ aku belajar kalau perkuliahan bakal lebih seru dan ringan kalau dijalanin bareng-bareng! 
+Ayo temenan di @rifdahusnul terus mutualan Letterboxd :p`,
     img: "/images/rifdah.png",
     bg: "linear-gradient(135deg, #ee9ca7, #ffdde1)",
   },
@@ -129,7 +131,7 @@ const sections = [
     id: "anggota13",
     title: "Syuja",
     desc: `Halo teman-teman!
-Aku Syuja, mahasiswa baru di Universitas Negeri Semarang, jurusan Teknik Informatika. Buatku, belajar itu bukan cuma soal teori, tapi gimana caranya kita bisa bikin sesuatu yang bermanfaat dan seru untuk orang lain.
+Aku Syuja, salah satu maba di Universitas Negeri Semarang, jurusan Teknik Informatika. Buatku, belajar itu bukan cuma soal teori, tapi gimana caranya kita bisa bikin sesuatu yang bermanfaat dan seru untuk orang lain.
 Aku orangnya santai dan gampang diajak ngobrol, jadi kalau ketemu jangan ragu buat say hi atau sharing cerita. 😁<br/>
 Kalau penasaran mau tahu lebih banyak tentang aku, boleh main ke: <br /> 👉 <a href="https://farrassyuja.my.id/" class="tech-link" target="_blank">
   farrassyuja.my.id

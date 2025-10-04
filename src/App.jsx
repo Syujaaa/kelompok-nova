@@ -92,7 +92,8 @@ const sections = [
   {
     id: "anggota8",
     title: "Nadin",
-    desc: `Alo alo alooo, kenalin nama aku Nadin Cahya Febrianti, kalian bisa panggil aku Nadin. Aku adalah anak yang selalu excited kalo ada yang ngajakin main. Aku seneng banget punya banyak temen. Tapi tapi tapi... aku orangnya sedikit ceroboh gesss. Makanya di Nova, aku disebut "problem maker"😢. TAPI ITU IT'S OK BANGET. Aku ga peduli mereka manggil aku apa, yang penting aku nyaman dan seneng main sama kaliannn🤍`,
+    desc: `Alo alo alooo, kenalin nama aku Nadin Cahya Febrianti, kalian bisa panggil aku Nadin. Aku mahasiswa maba baru  Teknik Informatika 2025 rombel 1 geysss. Aku adalah anak yang selalu excited kalo ada yang ngajakin main. Aku seneng banget punya banyak temen. Tapi tapi tapi... aku orangnya sedikit ceroboh gesss. Aku nyaman dan seneng bangettt bisa main sama kaliannn🤍
+P mutualan ig @nadiincaf_`,
     img: "/images/nadin.png",
     bg: "linear-gradient(135deg, #ff0099, #493240)",
   },

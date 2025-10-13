@@ -61,7 +61,8 @@ const sections = [
   {
     id: "anggota4",
     title: "Azza",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    desc: `Halo semuanyaaaa, kenalinn nama aku Najwa Azza Zharifa, terserah mau dipanggil apa, pasrah aku orangnya. Aku mahasiswi Universitas Negeri Semarang prodi Teknik Informatika. Aku suka banget explore hal baru, dan punya kemauan kuat buat terus belajar. Kalau mau mutualan ig, boleh banget nichh. @najwaa.zz 
+Semoga hal hal baik datang pada kalian setiap harinya, jangan lupa hargai tiap proses yang kalian lalui. Byee`,
     img: "/images/azza.png",
     bg: "linear-gradient(135deg, #e96443, #904e95)",
   },

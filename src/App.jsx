@@ -86,7 +86,8 @@ Semoga hal hal baik datang pada kalian setiap harinya, jangan lupa hargai tiap p
   {
     id: "anggota7",
     title: "Haikal",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    desc: `Hidup miskin banyak gaya, Gausah  sokin kalo ga percaya. 
+Yo yo yo, Sedang mencari jati diri. Kalau ketemu, tolong titipkan pesan agar segera pulang. Mamak sudah nyuruh nikah.(hehe) "Aku terlahir untuk mengekspresikan diri, bukan untuk membuat orang lain terkesan". (Tapi kalau kamu terkesan juga nggak apa-apa kok, aku nggak nolak).aku nih asik loh orangnya, kalo ga percaya PC aja, tapi jangan kaget Kalo balesnya besok.`,
     img: "/images/haikal.png",
     bg: "linear-gradient(135deg, #141e30, #243b55)",
   },
@@ -109,7 +110,7 @@ P mutualan ig @nadiincaf_`,
   {
     id: "anggota10",
     title: "Ozan",
-    desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    desc: `Aloo guysss, kenalin nama aku Muhammad Ammar Farras Fauzan, kalian bisa panggil aku Ozan!!!!! aku adalah mahasiswa Teknik Informatika UNNES 2025. Aku adalah anak yang suka olahraga, tapi jangan ajakin aku renang yaa. Selain olahraga, aku juga suka main game emel guys, INFOKAN BEWAN ANGELA!!!!`,
     img: "/images/ozan.png",
     bg: "linear-gradient(135deg, #2193b0, #6dd5ed)",
   },
@@ -255,13 +256,15 @@ export default function SmoothSections() {
                   </div>
                 </motion.div>
               ) : (
-                <div className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0" style={{zIndex: 9999}}>
+                <div
+                  className="flex-1 text-center md:text-left overflow-y-auto md:overflow-visible max-h-[60vh] md:max-h-none px-2 md:px-0"
+                  style={{ zIndex: 9999 }}
+                >
                   <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 text-cyan-300 drop-shadow-[0_0_20px_rgba(0,255,255,1)]">
                     {section.title}
                   </h1>
                   <p
                     className="text-base sm:text-lg md:text-xl leading-relaxed text-cyan-100 drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-                    
                     dangerouslySetInnerHTML={{ __html: section.desc }}
                   />
                 </div>
